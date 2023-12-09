@@ -52,16 +52,16 @@
       "executor": "@nx/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "apps/smart-workspace:build",
+        "buildTarget": "smart-workspace:build",
         "hmr": true,
         "port": 4200
       },
       "configurations": {
         "development": {
-          "buildTarget": "apps/smart-workspace:build:development"
+          "buildTarget": "smart-workspace:build:development"
         },
         "production": {
-          "buildTarget": "apps/smart-workspace:build:production",
+          "buildTarget": "smart-workspace:build:production",
           "hmr": false
         }
       }
@@ -77,16 +77,16 @@
       "executor": "@nx/web:file-server",
       "defaultConfiguration": "production",
       "options": {
-        "buildTarget": "apps/smart-workspace:build",
+        "buildTarget": "smart-workspace:build",
         "watch": false,
         "port": 4200
       },
       "configurations": {
         "development": {
-          "buildTarget": "apps/smart-workspace:build:development"
+          "buildTarget": "smart-workspace:build:development"
         },
         "production": {
-          "buildTarget": "apps/smart-workspace:build:production"
+          "buildTarget": "smart-workspace:build:production"
         }
       }
     },
@@ -98,5 +98,6 @@
       }
     }
   },
-  "tags": []
+  "tags": [],
+  "implicitDependencies": ["accounts-app"]
 }

@@ -1,10 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './App.module.scss';
+import React from 'react';
+// import styles from './App.module.scss';
 
 import NxWelcome from './nx-welcome';
 
 import { Route, Routes, Link } from 'react-router-dom';
 
+ import { Accounts } from 'accounts-app/accounts';
+// const Accounts = React.lazy(() => import('accounts-app/accounts').then());
 export function App() {
   return (
     <div>
@@ -22,6 +25,9 @@ export function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/accounts">Accounts</Link>
+          </li>
+          <li>
             <Link to="/page-2">Page 2</Link>
           </li>
         </ul>
@@ -36,6 +42,9 @@ export function App() {
             </div>
           }
         />
+        <Route path="/accounts" element={
+           <Accounts/>
+        } />
         <Route
           path="/page-2"
           element={

@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "accounts-app/Module": ["remotes/accounts-app/src/remote-entry.ts"]
+      "@smart/accounts": ["libs/accounts/src/index.ts"],
+      "accounts-app/Module": ["remotes/accounts-app/src/remote-entry.ts"],
+      "accounts-app/accounts": ["libs/accounts/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

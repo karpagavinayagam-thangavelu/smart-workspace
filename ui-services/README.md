@@ -61,3 +61,14 @@ Nx comes with local caching already built-in (check your `nx.json`). On CI you m
 - [Join the community](https://nx.dev/community)
 - [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
 - [Follow us on Twitter](https://twitter.com/nxdevtools)
+
+
+Updated module federation config.
+    Now you can use the module from your host app like this:
+
+    Static import:
+    import { MyComponent } from 'accounts-app/accounts';
+    
+    Dynamic import:
+    import('accounts-app/accounts').then((m) => m.accounts);
+  
