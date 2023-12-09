@@ -5,7 +5,7 @@ import { withModuleFederation } from '@nx/react/module-federation';
 import baseConfig from './module-federation.config';
 
 const prodConfig = {
-  ...baseConfig,
+  ../...baseConfig,
   /*
    * Remote overrides for production.
    * Each entry is a pair of a unique name and the URL where it is deployed.

@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "compiler": "swc",
+        "compiler": "babel",
         "outputPath": "dist/apps/smart-workspace",
         "index": "apps/smart-workspace/src/index.html",
         "baseHref": "/",
@@ -52,16 +52,16 @@
       "executor": "@nx/react:module-federation-dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "smart-workspace:build",
+        "buildTarget": "apps/smart-workspace:build",
         "hmr": true,
         "port": 4200
       },
       "configurations": {
         "development": {
-          "buildTarget": "smart-workspace:build:development"
+          "buildTarget": "apps/smart-workspace:build:development"
         },
         "production": {
-          "buildTarget": "smart-workspace:build:production",
+          "buildTarget": "apps/smart-workspace:build:production",
           "hmr": false
         }
       }
@@ -77,16 +77,16 @@
       "executor": "@nx/web:file-server",
       "defaultConfiguration": "production",
       "options": {
-        "buildTarget": "smart-workspace:build",
+        "buildTarget": "apps/smart-workspace:build",
         "watch": false,
         "port": 4200
       },
       "configurations": {
         "development": {
-          "buildTarget": "smart-workspace:build:development"
+          "buildTarget": "apps/smart-workspace:build:development"
         },
         "production": {
-          "buildTarget": "smart-workspace:build:production"
+          "buildTarget": "apps/smart-workspace:build:production"
         }
       }
     },
