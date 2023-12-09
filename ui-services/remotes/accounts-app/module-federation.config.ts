@@ -1,8 +1,10 @@
 import { ModuleFederationConfig } from '@nx/webpack';
 
 const config: ModuleFederationConfig = {
-  name: 'smart-workspace',
-  remotes: ['accounts-app'],
+  name: 'accounts-app',
+  exposes: {
+    './Module': './src/remote-entry.ts',
+  },
 };
 
 export default config;
