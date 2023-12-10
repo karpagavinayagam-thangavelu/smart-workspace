@@ -6,8 +6,8 @@ import NxWelcome from './nx-welcome';
 
 import { Route, Routes, Link } from 'react-router-dom';
 
- import { Accounts } from 'accounts-app/accounts';
-// const Accounts = React.lazy(() => import('accounts-app/accounts').then());
+//  import { Accounts } from 'accounts-app/accounts';
+ const Accounts = React.lazy(() => import('accounts-app/accounts').then());
 export function App() {
   return (
     <div>

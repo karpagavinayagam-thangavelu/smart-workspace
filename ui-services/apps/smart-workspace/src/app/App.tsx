@@ -1,9 +1,11 @@
 import * as React from 'react';
 
-import NxWelcome from './nx-welcome';
+import { Landing } from './Landing';
 
 import { Link, Route, Routes } from 'react-router-dom';
-import Accounts from 'accounts-app/Module';
+
+// import Accounts from 'accounts-app/Module';
+const Accounts = React.lazy(() => import('accounts-app/Module').then());
 export function App() {
   return (
     <React.Suspense fallback={null}>
@@ -16,9 +18,8 @@ export function App() {
         </li>
       </ul>
       <Routes>
-        <Route path="/" element={<NxWelcome title="smart-workspace" />} />
-        <Route path="/accounts" element={<Accounts/>} />
-      
+        <Route path="/" element={<Landing />} />
+        <Route path="/accounts" element={<Accounts />} />
       </Routes>
     </React.Suspense>
   );
