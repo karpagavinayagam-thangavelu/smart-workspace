@@ -1,0 +1,28 @@
+{
+  "extends": ["plugin:cypress/recommended", "../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["e2e/auth-app-e2e/tsconfig.*?.json"]
+      },
+      "rules": {}
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.cy.{ts,js,tsx,jsx}", "src/**/*.{ts,js,tsx,jsx}"],
+      "parserOptions": {
+        "project": "e2e/auth-app-e2e/tsconfig.*?.json"
+      },
+      "rules": {}
+    }
+  ]
+}
