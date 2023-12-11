@@ -9,11 +9,15 @@
   "private": true,
   "dependencies": {
     "@module-federation/nextjs-mf": "^7.0.8",
+    "@simondotm/nx-firebase": "^2.1.2",
     "@swc-node/core": "^1.10.6",
     "@swc-node/register": "^1.6.8",
+    "firebase": "^10.7.1",
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-firebase-hooks": "^5.1.1",
+    "react-firebaseui": "^6.0.0",
     "react-router-dom": "6.11.2",
     "tslib": "^2.3.0"
   },
