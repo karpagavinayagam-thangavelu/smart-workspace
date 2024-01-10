@@ -5,14 +5,10 @@ import React from 'react';
 import NxWelcome from './nx-welcome';
 
 import { Route, Routes, Link } from 'react-router-dom';
-
-//  import { Accounts } from 'accounts-app/accounts';
- const Accounts = React.lazy(() => import('accounts-app/accounts').then());
+ import { Accounts } from '@smart/accounts';
 export function App() {
   return (
     <div>
-      <NxWelcome title="accounts-app" />
-
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
       {/* Feel free to move and update them to fit your needs */}
@@ -25,12 +21,13 @@ export function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/accounts">Accounts</Link>
+            <Link to="accounts/main">Accounts</Link>
           </li>
           <li>
-            <Link to="/page-2">Page 2</Link>
+            <Link to="accounts/page2">Page 2</Link>
           </li>
         </ul>
+        <Accounts />
       </div>
       <Routes>
         <Route
@@ -38,23 +35,23 @@ export function App() {
           element={
             <div>
               This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
+              <Link to="/page2">Click here for page 2.</Link>
             </div>
           }
         />
-        <Route path="/accounts" element={
-           <Accounts/>
-        } />
+        <Route path="/main" element={<Accounts />} />
         <Route
-          path="/page-2"
+          path="/accounts/page2"
           element={
             <div>
               <Link to="/">Click here to go back to root page.</Link>
+              <Accounts />
             </div>
           }
         />
       </Routes>
       {/* END: routes */}
+      <NxWelcome title="accounts-app" />
     </div>
   );
 }

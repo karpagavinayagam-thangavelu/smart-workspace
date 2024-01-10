@@ -1,0 +1,18 @@
+
+.intro-banner {
+    @include setBackgroundImage('./assets/images/landing-banner.png');
+    .content {
+        padding-left: 20px;
+        color: #fff;
+        align-self: flex-end;
+        margin-bottom: 30vh;
+    }
+    h1 {
+        font-size: 70px;
+        margin-bottom: 10px;
+    }
+    h2 {
+        font-size: 40px;
+        margin-top: 10px;
+    }
+}

@@ -1,46 +1,73 @@
 {
   "name": "auth-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "remotes/auth-app",
+  "sourceRoot": "remotes/auth-app/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nx/next:build",
+      "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/remotes/auth-app"
+        "compiler": "babel",
+        "outputPath": "dist/remotes/auth-app",
+        "index": "remotes/auth-app/src/index.html",
+        "baseHref": "/",
+        "main": "remotes/auth-app/src/main.ts",
+        "tsConfig": "remotes/auth-app/tsconfig.app.json",
+        "assets": [
+          "remotes/auth-app/src/favicon.ico",
+          "remotes/auth-app/src/assets"
+        ],
+        "styles": ["remotes/auth-app/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "remotes/auth-app/webpack.config.ts"
       },
       "configurations": {
         "development": {
-          "outputPath": "remotes/auth-app"
-        },
-        "production": {}
-      }
-    },
-    "serve": {
-      "executor": "@nx/next:server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "auth-app:build",
-        "dev": true
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "auth-app:build:development",
-          "dev": true
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
         },
         "production": {
-          "buildTarget": "auth-app:build:production",
-          "dev": false
+          "fileReplacements": [
+            {
+              "replace": "remotes/auth-app/src/environments/environment.ts",
+              "with": "remotes/auth-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "remotes/auth-app/webpack.config.prod.ts"
         }
       }
     },
-    "export": {
-      "executor": "@nx/next:export",
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "auth-app:build:production"
+        "buildTarget": "auth-app:build",
+        "hmr": true,
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "auth-app:build:development"
+        },
+        "production": {
+          "buildTarget": "auth-app:build:production",
+          "hmr": false
+        }
       }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nx/jest:jest",
@@ -49,9 +76,22 @@
         "jestConfig": "remotes/auth-app/jest.config.ts"
       }
     },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "auth-app:build",
+        "watch": false,
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "auth-app:build:development"
+        },
+        "production": {
+          "buildTarget": "auth-app:build:production"
+        }
+      }
     }
   },
   "tags": []

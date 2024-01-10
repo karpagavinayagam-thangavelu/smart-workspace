@@ -1,0 +1,12 @@
+@import '/libs/core/src/index.scss';
+.login-page {
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > form > * {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}

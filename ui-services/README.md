@@ -72,3 +72,7 @@ Updated module federation config.
     Dynamic import:
     import('accounts-app/accounts').then((m) => m.accounts);
   
+
+firebase login
+firebase init
+firebase deploy

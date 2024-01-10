@@ -15,8 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@smart/accounts": ["libs/accounts/src/index.ts"],
-      "accounts-app/accounts": ["libs/accounts/src/index.ts"]
+      "@smart/accounts": ["micro-services/accounts/src/index.ts"],
+      "@smart/core": ["libs/core/src/index.ts"],
+      "accounts-app/Module": ["remotes/accounts-app/src/remote-entry.ts"],
+      "auth-app/Module": ["remotes/auth-app/src/remote-entry.ts"],
+      "auth-app/auth-verifier": ["remotes/auth-app/src/components/AuthVerifier.tsx"]
     }
   },
   "exclude": ["node_modules", "tmp"]

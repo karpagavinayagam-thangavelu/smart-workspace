@@ -1,1 +1,11 @@
 /* Your styles goes here. */
+
+body {
+    margin:  0;
+    padding: 0;
+}
+@import '/libs/core/src/index.scss';
+
+@import './login/login.module.scss';
+
+@import './landing/landing.module.scss';

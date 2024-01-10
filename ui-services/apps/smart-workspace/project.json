@@ -99,5 +99,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["accounts-app"]
+  "implicitDependencies": ["accounts-app","auth-app"]
 }
